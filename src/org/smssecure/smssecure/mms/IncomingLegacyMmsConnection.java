@@ -46,7 +46,7 @@ public class IncomingLegacyMmsConnection extends LegacyMmsConnection implements 
     super(context);
   }
 
-  private HttpUriRequest constructRequest(Apn contentApn, boolean useProxy) throws IOException {
+  private HttpUriRequest constructRequest(Apn contentApn, boolean useProxy) {
     HttpGetHC4 request = new HttpGetHC4(contentApn.getMmsc());
     for (Header header : getBaseHeaders()) {
       request.addHeader(header);

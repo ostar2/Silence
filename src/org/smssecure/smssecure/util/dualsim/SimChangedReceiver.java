@@ -9,9 +9,9 @@ import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import org.smssecure.smssecure.ApplicationContext;
+import org.smssecure.smssecure.jobs.GenerateKeysJob;
 import org.smssecure.smssecure.util.SilencePreferences;
 import org.smssecure.smssecure.util.VersionTracker;
-import org.smssecure.smssecure.jobs.GenerateKeysJob;
 
 import java.util.Arrays;
 import java.util.List;

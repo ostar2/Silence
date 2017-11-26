@@ -19,12 +19,12 @@ package org.smssecure.smssecure.database;
 import android.database.Cursor;
 import android.util.Log;
 
+import java.io.UnsupportedEncodingException;
+
 import ws.com.google.android.mms.InvalidHeaderValueException;
 import ws.com.google.android.mms.pdu.CharacterSets;
 import ws.com.google.android.mms.pdu.EncodedStringValue;
 import ws.com.google.android.mms.pdu.PduHeaders;
-
-import java.io.UnsupportedEncodingException;
 
 public class PduHeadersBuilder {
 

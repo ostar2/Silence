@@ -22,8 +22,8 @@ import android.net.Uri;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 
-import org.smssecure.smssecure.attachments.Attachment;
 import org.smssecure.smssecure.R;
+import org.smssecure.smssecure.attachments.Attachment;
 
 import java.io.IOException;
 

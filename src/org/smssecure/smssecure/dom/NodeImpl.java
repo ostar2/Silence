@@ -17,9 +17,7 @@
 
 package org.smssecure.smssecure.dom;
 
-import java.util.NoSuchElementException;
-import java.util.Vector;
-
+import org.smssecure.smssecure.dom.events.EventTargetImpl;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -31,11 +29,12 @@ import org.w3c.dom.events.EventException;
 import org.w3c.dom.events.EventListener;
 import org.w3c.dom.events.EventTarget;
 
-import org.smssecure.smssecure.dom.events.EventTargetImpl;
+import java.util.NoSuchElementException;
+import java.util.Vector;
 
 public abstract class NodeImpl implements Node, EventTarget {
     private Node mParentNode;
-    private final Vector<Node> mChildNodes = new Vector<Node>();
+    private final Vector<Node> mChildNodes = new Vector<>();
     DocumentImpl mOwnerDocument;
     private final EventTarget mEventTarget = new EventTargetImpl(this);
 

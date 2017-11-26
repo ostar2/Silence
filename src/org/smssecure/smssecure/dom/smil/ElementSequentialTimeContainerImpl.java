@@ -17,15 +17,14 @@
 
 package org.smssecure.smssecure.dom.smil;
 
-import java.util.ArrayList;
-
+import org.smssecure.smssecure.dom.NodeListImpl;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.smil.ElementSequentialTimeContainer;
 import org.w3c.dom.smil.ElementTime;
 import org.w3c.dom.smil.SMILElement;
 
-import org.smssecure.smssecure.dom.NodeListImpl;
+import java.util.ArrayList;
 
 public abstract class ElementSequentialTimeContainerImpl extends
         ElementTimeContainerImpl implements ElementSequentialTimeContainer {
@@ -44,7 +43,7 @@ public abstract class ElementSequentialTimeContainerImpl extends
 
     public NodeList getActiveChildrenAt(float instant) {
         NodeList allChildren = this.getTimeChildren();
-        ArrayList<Node> nodes = new ArrayList<Node>();
+        ArrayList<Node> nodes = new ArrayList<>();
         for (int i = 0; i < allChildren.getLength(); i++) {
             instant -= ((ElementTime) allChildren.item(i)).getDur();
             if (instant < 0) {

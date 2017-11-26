@@ -24,11 +24,11 @@ import android.support.v7.app.ActionBar;
 import org.smssecure.smssecure.crypto.IdentityKeyUtil;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.crypto.MasterSecretUtil;
+import org.smssecure.smssecure.util.SilencePreferences;
+import org.smssecure.smssecure.util.VersionTracker;
 import org.smssecure.smssecure.util.dualsim.DualSimUtil;
 import org.smssecure.smssecure.util.dualsim.SubscriptionInfoCompat;
 import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
-import org.smssecure.smssecure.util.SilencePreferences;
-import org.smssecure.smssecure.util.VersionTracker;
 
 import java.util.List;
 

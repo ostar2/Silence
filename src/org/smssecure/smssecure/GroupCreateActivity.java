@@ -20,7 +20,6 @@ package org.smssecure.smssecure;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -36,7 +35,6 @@ import org.smssecure.smssecure.components.PushRecipientsPanel;
 import org.smssecure.smssecure.contacts.RecipientsEditor;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.DatabaseFactory;
-import org.smssecure.smssecure.database.NotInDirectoryException;
 import org.smssecure.smssecure.database.ThreadDatabase;
 import org.smssecure.smssecure.recipients.Recipient;
 import org.smssecure.smssecure.recipients.RecipientFactory;
@@ -47,7 +45,6 @@ import org.smssecure.smssecure.util.InvalidNumberException;
 import org.smssecure.smssecure.util.SelectedRecipientsAdapter;
 import org.smssecure.smssecure.util.Util;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -235,7 +232,7 @@ public class GroupCreateActivity extends PassphraseRequiredActionBarActivity {
   }
 
   private static <T> ArrayList<T> setToArrayList(Set<T> set) {
-    ArrayList<T> arrayList = new ArrayList<T>(set.size());
+    ArrayList<T> arrayList = new ArrayList<>(set.size());
     for (T item : set) {
       arrayList.add(item);
     }
@@ -245,7 +242,7 @@ public class GroupCreateActivity extends PassphraseRequiredActionBarActivity {
   private Set<String> getE164Numbers(Set<Recipient> recipients)
       throws InvalidNumberException
   {
-    Set<String> results = new HashSet<String>();
+    Set<String> results = new HashSet<>();
 
     for (Recipient recipient : recipients) {
       results.add(Util.canonicalizeNumber(this, recipient.getNumber()));

@@ -17,10 +17,9 @@
 
 package org.smssecure.smssecure.dom.smil;
 
+import org.smssecure.smssecure.dom.ElementImpl;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.smil.SMILElement;
-
-import org.smssecure.smssecure.dom.ElementImpl;
 
 public class SmilElementImpl extends ElementImpl implements SMILElement {
     /**

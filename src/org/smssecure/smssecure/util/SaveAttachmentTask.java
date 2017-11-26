@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class SaveAttachmentTask extends ProgressDialogAsyncTask<SaveAttachmentTask.Attachment, Void, Integer> {
   private static final String TAG = SaveAttachmentTask.class.getSimpleName();
@@ -123,7 +124,7 @@ public class SaveAttachmentTask extends ProgressDialogAsyncTask<SaveAttachmentTa
     }
   }
 
-  private File constructOutputFile(String contentType, long timestamp) throws IOException {
+  private File constructOutputFile(String contentType, long timestamp) {
     File sdCard = Environment.getExternalStorageDirectory();
     File outputDirectory;
 
@@ -141,7 +142,7 @@ public class SaveAttachmentTask extends ProgressDialogAsyncTask<SaveAttachmentTa
 
     MimeTypeMap       mimeTypeMap   = MimeTypeMap.getSingleton();
     String            extension     = mimeTypeMap.getExtensionFromMimeType(contentType);
-    SimpleDateFormat  dateFormatter = new SimpleDateFormat("yyyy-MM-dd-HHmmss");
+    SimpleDateFormat  dateFormatter = new SimpleDateFormat("yyyy-MM-dd-HHmmss", Locale.US);
     String            base          = "smssecure-" + dateFormatter.format(timestamp);
 
     if (extension == null) extension = "attach";

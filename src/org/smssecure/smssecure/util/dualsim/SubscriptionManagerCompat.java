@@ -10,7 +10,6 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 
 import org.smssecure.smssecure.util.ServiceUtil;
-
 import org.whispersystems.libsignal.util.guava.Optional;
 
 import java.util.LinkedList;
@@ -33,7 +32,7 @@ public class SubscriptionManagerCompat {
 
   private SubscriptionManagerCompat(Context context) {
     this.context = context.getApplicationContext();
-    this.displayNameList = new LinkedList<String>();
+    this.displayNameList = new LinkedList<>();
   }
 
   public Optional<SubscriptionInfoCompat> getActiveSubscriptionInfo(int subscriptionId) {
@@ -62,7 +61,7 @@ public class SubscriptionManagerCompat {
 
   @TargetApi(22)
   private void updateDisplayNameList(List<SubscriptionInfo> activeSubscriptions) {
-    displayNameList = new LinkedList<String>();
+    displayNameList = new LinkedList<>();
 
     if (activeSubscriptions != null) {
       for (SubscriptionInfo subscriptionInfo : activeSubscriptions) {

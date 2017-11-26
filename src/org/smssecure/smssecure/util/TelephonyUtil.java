@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.telephony.TelephonyManager;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.TelephonyManager;
 import android.util.Log;
-
-import org.smssecure.smssecure.util.ServiceUtil;
 
 public class TelephonyUtil {
   private static final String TAG = TelephonyUtil.class.getSimpleName();

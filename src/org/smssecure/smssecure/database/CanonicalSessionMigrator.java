@@ -26,21 +26,21 @@ public class CanonicalSessionMigrator {
   private static void migrateSession(File sessionFile, File sessionsDirectory, long canonicalAddress) {
     File canonicalSessionFile = new File(sessionsDirectory.getAbsolutePath() + File.separatorChar + canonicalAddress);
     sessionFile.renameTo(canonicalSessionFile);
-    Log.w("CanonicalSessionMigrator", "Moving: " + sessionFile.toString() + " to " + canonicalSessionFile.toString());
+    Log.w("CanonicalSessionMig.", "Moving: " + sessionFile.toString() + " to " + canonicalSessionFile.toString());
 
     File canonicalSessionFileLocal = new File(sessionsDirectory.getAbsolutePath() + File.separatorChar + canonicalAddress + "-local");
     File localFile                 = new File(sessionFile.getAbsolutePath() + "-local");
     if (localFile.exists())
       localFile.renameTo(canonicalSessionFileLocal);
 
-    Log.w("CanonicalSessionMigrator", "Moving " + localFile + " to " + canonicalSessionFileLocal);
+    Log.w("CanonicalSessionMig.", "Moving " + localFile + " to " + canonicalSessionFileLocal);
 
     File canonicalSessionFileRemote = new File(sessionsDirectory.getAbsolutePath() + File.separatorChar + canonicalAddress + "-remote");
     File remoteFile                 = new File(sessionFile.getAbsolutePath() + "-remote");
     if (remoteFile.exists())
       remoteFile.renameTo(canonicalSessionFileRemote);
 
-    Log.w("CanonicalSessionMigrator", "Moving " + remoteFile + " to " + canonicalSessionFileRemote);
+    Log.w("CanonicalSessionMig.", "Moving " + remoteFile + " to " + canonicalSessionFileRemote);
 
   }
 
@@ -55,11 +55,11 @@ public class CanonicalSessionMigrator {
 
     String[] files = rootDirectory.list();
 
-    for (int i=0;i<files.length;i++) {
-      File item = new File(rootDirectory.getAbsolutePath() + File.separatorChar + files[i]);
+    for (String file : files) {
+      File item = new File(rootDirectory.getAbsolutePath() + File.separatorChar + file);
 
-      if (!item.isDirectory() && files[i].matches("[0-9]+")) {
-        long canonicalAddress = canonicalDb.getCanonicalAddressId(files[i]);
+      if (!item.isDirectory() && file.matches("[0-9]+")) {
+        long canonicalAddress = canonicalDb.getCanonicalAddressId(file);
         migrateSession(item, sessionsDirectory, canonicalAddress);
       }
     }

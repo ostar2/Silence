@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class TextTransport {
 
-  public byte[] getDecodedMessage(byte[] encodedMessageBytes) throws IOException {
+  public byte[] getDecodedMessage(byte[] encodedMessageBytes) {
     return Base64.decode(encodedMessageBytes);
   }
 

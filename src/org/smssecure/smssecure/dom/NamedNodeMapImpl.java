@@ -17,15 +17,15 @@
 
 package org.smssecure.smssecure.dom;
 
-import java.util.Vector;
-
 import org.w3c.dom.DOMException;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
+import java.util.Vector;
+
 public class NamedNodeMapImpl implements NamedNodeMap {
 
-    private Vector<Node> mNodes = new Vector<Node>();
+    private Vector<Node> mNodes = new Vector<>();
 
     public int getLength() {
         return mNodes.size();

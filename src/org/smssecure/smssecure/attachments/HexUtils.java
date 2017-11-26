@@ -16,9 +16,9 @@ package org.smssecure.smssecure.attachments;
  * limitations under the License.
  */
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-        import java.io.OutputStream;
-        import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 
 /**
  * Hex encoder/decoder implementation (borrowed from BouncyCastle=.

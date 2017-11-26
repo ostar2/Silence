@@ -66,11 +66,12 @@ public class MessageRecipientListItem extends RelativeLayout
 
   @Override
   protected void onFinishInflate() {
-    this.fromView          = (FromTextView)    findViewById(R.id.from);
-    this.errorDescription  = (TextView)        findViewById(R.id.error_description);
+    super.onFinishInflate();//TODO check if needed
+    this.fromView = (FromTextView) findViewById(R.id.from);
+    this.errorDescription = (TextView) findViewById(R.id.error_description);
     this.contactPhotoImage = (AvatarImageView) findViewById(R.id.contact_photo_image);
-    this.conflictButton    = (Button)          findViewById(R.id.conflict_button);
-    this.resendButton      = (Button)          findViewById(R.id.resend_button);
+    this.conflictButton = (Button) findViewById(R.id.conflict_button);
+    this.resendButton = (Button) findViewById(R.id.resend_button);
   }
 
   public void set(final MasterSecret masterSecret,

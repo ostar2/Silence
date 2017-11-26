@@ -31,9 +31,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.smssecure.smssecure.components.AlertView;
 import org.smssecure.smssecure.components.AvatarImageView;
 import org.smssecure.smssecure.components.DeliveryStatusView;
-import org.smssecure.smssecure.components.AlertView;
 import org.smssecure.smssecure.components.FromTextView;
 import org.smssecure.smssecure.components.ThumbnailView;
 import org.smssecure.smssecure.crypto.MasterSecret;

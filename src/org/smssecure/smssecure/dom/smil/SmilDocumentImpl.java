@@ -17,6 +17,8 @@
 
 package org.smssecure.smssecure.dom.smil;
 
+import org.smssecure.smssecure.dom.DocumentImpl;
+import org.smssecure.smssecure.dom.events.EventImpl;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -29,9 +31,6 @@ import org.w3c.dom.smil.SMILDocument;
 import org.w3c.dom.smil.SMILElement;
 import org.w3c.dom.smil.SMILLayoutElement;
 import org.w3c.dom.smil.TimeList;
-
-import org.smssecure.smssecure.dom.DocumentImpl;
-import org.smssecure.smssecure.dom.events.EventImpl;
 
 public class SmilDocumentImpl extends DocumentImpl implements SMILDocument, DocumentEvent {
     /*

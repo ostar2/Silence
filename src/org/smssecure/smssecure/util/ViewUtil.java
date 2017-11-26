@@ -37,7 +37,6 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import org.smssecure.smssecure.util.concurrent.ListenableFuture;
@@ -55,39 +54,19 @@ public class ViewUtil {
   }
 
   public static void setY(final @NonNull View v, final int y) {
-    if (VERSION.SDK_INT >= 11) {
       ViewCompat.setY(v, y);
-    } else {
-      ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)v.getLayoutParams();
-      params.topMargin = y;
-      v.setLayoutParams(params);
-    }
   }
 
   public static float getY(final @NonNull View v) {
-    if (VERSION.SDK_INT >= 11) {
-      return ViewCompat.getY(v);
-    } else {
-      return ((ViewGroup.MarginLayoutParams)v.getLayoutParams()).topMargin;
-    }
+    return ViewCompat.getY(v);
   }
 
   public static void setX(final @NonNull View v, final int x) {
-    if (VERSION.SDK_INT >= 11) {
-      ViewCompat.setX(v, x);
-    } else {
-      ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)v.getLayoutParams();
-      params.leftMargin = x;
-      v.setLayoutParams(params);
-    }
+    ViewCompat.setX(v, x);
   }
 
   public static float getX(final @NonNull View v) {
-    if (VERSION.SDK_INT >= 11) {
-      return ViewCompat.getX(v);
-    } else {
-      return ((LayoutParams)v.getLayoutParams()).leftMargin;
-    }
+    return ViewCompat.getX(v);
   }
 
   public static void swapChildInPlace(ViewGroup parent, View toRemove, View toAdd, int defaultIndex) {
@@ -123,7 +102,7 @@ public class ViewUtil {
   }
 
   public static <T extends View> Stub<T> findStubById(@NonNull Activity parent, @IdRes int resId) {
-    return new Stub<T>((ViewStub)parent.findViewById(resId));
+    return new Stub<>((ViewStub) parent.findViewById(resId));
   }
 
   private static Animation getAlphaAnimation(float from, float to, int duration) {

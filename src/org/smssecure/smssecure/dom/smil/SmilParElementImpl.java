@@ -17,8 +17,6 @@
 
 package org.smssecure.smssecure.dom.smil;
 
-import java.util.ArrayList;
-
 import org.w3c.dom.DOMException;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.events.DocumentEvent;
@@ -28,6 +26,8 @@ import org.w3c.dom.smil.ElementTime;
 import org.w3c.dom.smil.SMILParElement;
 import org.w3c.dom.smil.Time;
 import org.w3c.dom.smil.TimeList;
+
+import java.util.ArrayList;
 
 public class SmilParElementImpl extends SmilElementImpl implements SMILParElement {
     public final static String SMIL_SLIDE_START_EVENT = "SmilSlideStart";
@@ -43,7 +43,7 @@ public class SmilParElementImpl extends SmilElementImpl implements SMILParElemen
              */
             TimeList beginTimeList = super.getBegin();
             if (beginTimeList.getLength() > 1) {
-                ArrayList<Time> singleTimeContainer = new ArrayList<Time>();
+                ArrayList<Time> singleTimeContainer = new ArrayList<>();
                 singleTimeContainer.add(beginTimeList.item(0));
                 beginTimeList = new TimeListImpl(singleTimeContainer);
             }

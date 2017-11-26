@@ -9,8 +9,8 @@ import android.support.annotation.NonNull;
 import org.smssecure.smssecure.attachments.AttachmentId;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.DatabaseFactory;
-import org.smssecure.smssecure.providers.PersistentBlobProvider;
 import org.smssecure.smssecure.providers.PartProvider;
+import org.smssecure.smssecure.providers.PersistentBlobProvider;
 import org.smssecure.smssecure.providers.SingleUseBlobProvider;
 
 import java.io.IOException;

@@ -2,18 +2,16 @@ package org.smssecure.smssecure.crypto;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.os.Build;
+import android.support.annotation.NonNull;
 
 import org.smssecure.smssecure.crypto.storage.SilenceSessionStore;
-import org.smssecure.smssecure.recipients.Recipient;
 import org.smssecure.smssecure.util.dualsim.SubscriptionInfoCompat;
-import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
 import org.whispersystems.libsignal.SignalProtocolAddress;
 import org.whispersystems.libsignal.state.SessionStore;
 
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
 public class SessionUtil {
 

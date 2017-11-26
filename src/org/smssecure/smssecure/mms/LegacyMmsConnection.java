@@ -40,8 +40,8 @@ import org.apache.http.message.BasicHeader;
 import org.smssecure.smssecure.database.ApnDatabase;
 import org.smssecure.smssecure.util.Conversions;
 import org.smssecure.smssecure.util.ServiceUtil;
-import org.smssecure.smssecure.util.TelephonyUtil;
 import org.smssecure.smssecure.util.SilencePreferences;
+import org.smssecure.smssecure.util.TelephonyUtil;
 import org.smssecure.smssecure.util.Util;
 import org.whispersystems.libsignal.util.guava.Optional;
 

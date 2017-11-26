@@ -18,6 +18,7 @@
 package org.smssecure.smssecure.crypto;
 
 import org.smssecure.smssecure.util.Base64;
+import org.smssecure.smssecure.util.Conversions;
 import org.smssecure.smssecure.util.Util;
 import org.whispersystems.libsignal.InvalidKeyException;
 import org.whispersystems.libsignal.InvalidMessageException;
@@ -25,7 +26,6 @@ import org.whispersystems.libsignal.ecc.Curve;
 import org.whispersystems.libsignal.ecc.ECKeyPair;
 import org.whispersystems.libsignal.ecc.ECPrivateKey;
 import org.whispersystems.libsignal.ecc.ECPublicKey;
-import org.smssecure.smssecure.util.Conversions;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

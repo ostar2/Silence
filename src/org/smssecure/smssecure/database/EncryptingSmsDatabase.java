@@ -25,14 +25,14 @@ import android.util.Pair;
 import org.smssecure.smssecure.R;
 import org.smssecure.smssecure.crypto.AsymmetricMasterCipher;
 import org.smssecure.smssecure.crypto.AsymmetricMasterSecret;
+import org.smssecure.smssecure.crypto.MasterCipher;
+import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.model.DisplayRecord;
 import org.smssecure.smssecure.database.model.SmsMessageRecord;
 import org.smssecure.smssecure.sms.IncomingTextMessage;
 import org.smssecure.smssecure.sms.OutgoingTextMessage;
 import org.smssecure.smssecure.util.LRUCache;
 import org.whispersystems.libsignal.InvalidMessageException;
-import org.smssecure.smssecure.crypto.MasterCipher;
-import org.smssecure.smssecure.crypto.MasterSecret;
 
 import java.lang.ref.SoftReference;
 import java.util.Collections;
@@ -187,7 +187,7 @@ public class EncryptingSmsDatabase extends SmsDatabase {
         Collections.synchronizedMap(new LRUCache<String, SoftReference<String>>(MAX_CACHE_SIZE));
 
     public void put(String ciphertext, String plaintext) {
-      decryptedBodyCache.put(ciphertext, new SoftReference<String>(plaintext));
+      decryptedBodyCache.put(ciphertext, new SoftReference<>(plaintext));
     }
 
     public String get(String ciphertext) {

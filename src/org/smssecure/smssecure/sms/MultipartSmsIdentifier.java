@@ -11,7 +11,7 @@ public class MultipartSmsIdentifier {
     return instance;
   }
 
-  private final HashMap<String, Integer>  idMap = new HashMap<String, Integer>();
+  private final HashMap<String, Integer>  idMap = new HashMap<>();
 
   public synchronized byte getIdForRecipient(String recipient) {
     Integer currentId;

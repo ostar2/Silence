@@ -24,6 +24,7 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
@@ -62,7 +63,7 @@ public class AttachmentServer implements Runnable {
   }
 
   public Uri getUri() {
-    return Uri.parse(String.format("http://127.0.0.1:%d/%s", port, auth));
+    return Uri.parse(String.format(Locale.US,"http://127.0.0.1:%d/%s", port, auth));
   }
 
   public void start() {
@@ -345,9 +346,9 @@ public class AttachmentServer implements Runnable {
      * Decodes the percent encoding scheme. <br/>
      * For example: "an+example%20string" -> "an example string"
      */
-    private String decodePercent(String str) throws InterruptedException {
+    private String decodePercent(String str) {
       try {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
           char c = str.charAt(i);
           switch (c) {

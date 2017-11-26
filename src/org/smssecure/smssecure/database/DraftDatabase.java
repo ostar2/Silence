@@ -10,8 +10,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.smssecure.smssecure.R;
-import org.whispersystems.libsignal.InvalidMessageException;
 import org.smssecure.smssecure.crypto.MasterCipher;
+import org.whispersystems.libsignal.InvalidMessageException;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -77,7 +77,7 @@ public class DraftDatabase extends Database {
 
   public List<Draft> getDrafts(MasterCipher masterCipher, long threadId) {
     SQLiteDatabase db   = databaseHelper.getReadableDatabase();
-    List<Draft> results = new LinkedList<Draft>();
+    List<Draft> results = new LinkedList<>();
     Cursor cursor       = null;
 
     try {

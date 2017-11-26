@@ -10,7 +10,6 @@ import org.smssecure.smssecure.util.dualsim.SubscriptionInfoCompat;
 import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
 import org.whispersystems.jobqueue.JobParameters;
 
-
 import java.util.List;
 
 public class GenerateKeysJob extends MasterSecretJob {

@@ -28,7 +28,6 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 
-import org.smssecure.smssecure.util.Conversions;
 import org.smssecure.smssecure.crypto.MasterCipher;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.CursorRecyclerViewAdapter;
@@ -36,6 +35,7 @@ import org.smssecure.smssecure.database.DatabaseFactory;
 import org.smssecure.smssecure.database.ThreadDatabase;
 import org.smssecure.smssecure.database.model.ThreadRecord;
 import org.smssecure.smssecure.recipients.Recipients;
+import org.smssecure.smssecure.util.Conversions;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -66,7 +66,7 @@ public class ConversationListAdapter extends CursorRecyclerViewAdapter<Conversat
   private final Set<Long> batchSet  = Collections.synchronizedSet(new HashSet<Long>());
   private       boolean   batchMode = false;
 
-  private LinkedList<Pair<Long, Recipients>> threadIdAndRecipients = new LinkedList<Pair<Long,Recipients>>();
+  private LinkedList<Pair<Long, Recipients>> threadIdAndRecipients = new LinkedList<>();
 
   protected static class ViewHolder extends RecyclerView.ViewHolder {
     public <V extends View & BindableConversationListItem> ViewHolder(final @NonNull V itemView)
@@ -183,7 +183,7 @@ public class ConversationListAdapter extends CursorRecyclerViewAdapter<Conversat
   }
 
   public void populateRecipients(long threadId, Recipients recipients) {
-    threadIdAndRecipients.add(new Pair<Long,Recipients>(threadId, recipients));
+    threadIdAndRecipients.add(new Pair<>(threadId, recipients));
   }
 
   public @Nullable Recipients getRecipientsFromThreadId(long threadId) {

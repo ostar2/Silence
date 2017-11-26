@@ -17,7 +17,6 @@ import org.whispersystems.libsignal.IdentityKey;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public abstract class MessagingDatabase extends Database implements MmsSmsColumns {
@@ -133,7 +132,9 @@ public abstract class MessagingDatabase extends Database implements MmsSmsColumn
 
       try {
         return clazz.newInstance();
-      } catch (InstantiationException | IllegalAccessException e) {
+      } catch ( IllegalAccessException e) {
+        throw new AssertionError(e);
+      } catch (InstantiationException e) {
         throw new AssertionError(e);
       }
 

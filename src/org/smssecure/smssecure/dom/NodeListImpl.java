@@ -17,10 +17,10 @@
 
 package org.smssecure.smssecure.dom;
 
-import java.util.ArrayList;
-
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import java.util.ArrayList;
 
 public class NodeListImpl implements NodeList {
     private ArrayList<Node> mSearchNodes;
@@ -102,7 +102,7 @@ public class NodeListImpl implements NodeList {
         // (Re)-initialize the container if this is the start of the search.
         // Visit the root of this iteration otherwise.
         if (node == mRootNode) {
-            mSearchNodes = new ArrayList<Node>();
+            mSearchNodes = new ArrayList<>();
         } else {
             if ((mTagName == null) || node.getNodeName().equals(mTagName)) {
                 mSearchNodes.add(node);

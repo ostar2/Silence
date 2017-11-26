@@ -17,8 +17,7 @@
 
 package org.smssecure.smssecure.dom.smil;
 
-import java.util.ArrayList;
-
+import org.smssecure.smssecure.dom.NodeListImpl;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -28,7 +27,7 @@ import org.w3c.dom.smil.SMILElement;
 import org.w3c.dom.smil.Time;
 import org.w3c.dom.smil.TimeList;
 
-import org.smssecure.smssecure.dom.NodeListImpl;
+import java.util.ArrayList;
 
 public abstract class ElementParallelTimeContainerImpl extends ElementTimeContainerImpl
         implements ElementParallelTimeContainer {
@@ -112,7 +111,7 @@ public abstract class ElementParallelTimeContainerImpl extends ElementTimeContai
          * Add ElementTime to list of active elements if the Time belongs to the begin-list,
          * do not add it otherwise.
          */
-        ArrayList<Node> activeChildren = new ArrayList<Node>();
+        ArrayList<Node> activeChildren = new ArrayList<>();
         NodeList children = getTimeChildren();
         int childrenLen = children.getLength();
         for (int i = 0; i < childrenLen; ++i) {

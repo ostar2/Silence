@@ -30,7 +30,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MotionEvent;
 import android.view.inputmethod.EditorInfo;
@@ -38,7 +37,6 @@ import android.widget.MultiAutoCompleteTextView;
 
 import org.smssecure.smssecure.recipients.Recipient;
 import org.smssecure.smssecure.recipients.RecipientFactory;
-import org.smssecure.smssecure.recipients.RecipientFormattingException;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.smssecure.smssecure.recipients.RecipientsFormatter;
 
@@ -280,9 +278,9 @@ public class RecipientsEditor extends AppCompatMultiAutoCompleteTextView {
     }
 
     private static String getAnnotation(Annotation[] a, String key) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i].getKey().equals(key)) {
-                return a[i].getValue();
+        for (Annotation anA : a) {
+            if (anA.getKey().equals(key)) {
+                return anA.getValue();
             }
         }
 
@@ -374,7 +372,7 @@ public class RecipientsEditor extends AppCompatMultiAutoCompleteTextView {
         public List<String> getNumbers() {
             Spanned sp = mList.getText();
             int len = sp.length();
-            List<String> list = new ArrayList<String>();
+            List<String> list = new ArrayList<>();
 
             int start = 0;
             int i = 0;

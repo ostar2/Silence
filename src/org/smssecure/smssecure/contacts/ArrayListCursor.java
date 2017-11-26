@@ -18,7 +18,6 @@ package org.smssecure.smssecure.contacts;
 import android.database.AbstractCursor;
 import android.database.CursorWindow;
 
-import java.lang.System;
 import java.util.ArrayList;
 
 /**
@@ -34,8 +33,8 @@ public class ArrayListCursor extends AbstractCursor {
         int colCount = columnNames.length;
         boolean foundID = false;
         // Add an _id column if not in columnNames
-        for (int i = 0; i < colCount; ++i) {
-            if (columnNames[i].compareToIgnoreCase("_id") == 0) {
+        for (String columnName : columnNames) {
+            if (columnName.compareToIgnoreCase("_id") == 0) {
                 mColumnNames = columnNames;
                 foundID = true;
                 break;

@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,7 +26,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-import java.lang.System;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -34,8 +35,6 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import android.util.Log;
 
 /**
  * Class for streaming an encrypted MMS "part" off the disk.

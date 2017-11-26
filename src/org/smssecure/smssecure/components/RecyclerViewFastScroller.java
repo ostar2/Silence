@@ -23,7 +23,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build.VERSION;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -178,36 +177,30 @@ public class RecyclerViewFastScroller extends LinearLayout {
   @TargetApi(11)
   private void showBubble() {
     bubble.setVisibility(VISIBLE);
-    if (VERSION.SDK_INT >= 11) {
       if (currentAnimator != null) currentAnimator.cancel();
       currentAnimator = ObjectAnimator.ofFloat(bubble, "alpha", 0f, 1f).setDuration(BUBBLE_ANIMATION_DURATION);
       currentAnimator.start();
-    }
   }
 
   @TargetApi(11)
   private void hideBubble() {
-    if (VERSION.SDK_INT >= 11) {
-      if (currentAnimator != null) currentAnimator.cancel();
-      currentAnimator = ObjectAnimator.ofFloat(bubble, "alpha", 1f, 0f).setDuration(BUBBLE_ANIMATION_DURATION);
-      currentAnimator.addListener(new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationEnd(Animator animation) {
-          super.onAnimationEnd(animation);
-          bubble.setVisibility(INVISIBLE);
-          currentAnimator = null;
-        }
+    if (currentAnimator != null) currentAnimator.cancel();
+    currentAnimator = ObjectAnimator.ofFloat(bubble, "alpha", 1f, 0f).setDuration(BUBBLE_ANIMATION_DURATION);
+    currentAnimator.addListener(new AnimatorListenerAdapter() {
+      @Override
+      public void onAnimationEnd(Animator animation) {
+        super.onAnimationEnd(animation);
+        bubble.setVisibility(INVISIBLE);
+        currentAnimator = null;
+      }
 
-        @Override
-        public void onAnimationCancel(Animator animation) {
-          super.onAnimationCancel(animation);
-          bubble.setVisibility(INVISIBLE);
-          currentAnimator = null;
-        }
-      });
-      currentAnimator.start();
-    } else {
-      bubble.setVisibility(INVISIBLE);
-    }
+      @Override
+      public void onAnimationCancel(Animator animation) {
+        super.onAnimationCancel(animation);
+        bubble.setVisibility(INVISIBLE);
+        currentAnimator = null;
+      }
+    });
+    currentAnimator.start();
   }
 }

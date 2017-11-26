@@ -8,8 +8,8 @@ import android.view.View.OnClickListener;
 import org.smssecure.smssecure.ConversationListActivity;
 import org.smssecure.smssecure.DatabaseMigrationActivity;
 import org.smssecure.smssecure.R;
-import org.smssecure.smssecure.service.ApplicationMigrationService;
 import org.smssecure.smssecure.crypto.MasterSecret;
+import org.smssecure.smssecure.service.ApplicationMigrationService;
 
 public class SystemSmsImportReminder extends Reminder {
 

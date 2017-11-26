@@ -17,11 +17,11 @@
 
 package org.smssecure.smssecure.dom.smil;
 
+import android.util.Log;
+
 import org.w3c.dom.DOMException;
 import org.w3c.dom.smil.SMILDocument;
 import org.w3c.dom.smil.SMILRegionElement;
-
-import android.util.Log;
 
 public class SmilRegionElementImpl extends SmilElementImpl implements
         SMILRegionElement {

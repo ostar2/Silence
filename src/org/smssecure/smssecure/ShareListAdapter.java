@@ -24,11 +24,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 
+import org.smssecure.smssecure.crypto.MasterCipher;
+import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.DatabaseFactory;
 import org.smssecure.smssecure.database.ThreadDatabase;
 import org.smssecure.smssecure.database.model.ThreadRecord;
-import org.smssecure.smssecure.crypto.MasterCipher;
-import org.smssecure.smssecure.crypto.MasterSecret;
 
 /**
  * A CursorAdapter for building a list of open conversations

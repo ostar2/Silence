@@ -82,7 +82,7 @@ public class EncryptedBackupExporter {
     }
   }
 
-  private static void exportDirectory(Context context, String directoryName) throws IOException {
+  private static void exportDirectory(Context context, String directoryName) {
     File directory       = new File(context.getFilesDir().getParent() + File.separatorChar + directoryName);
     File exportDirectory = new File(getExportDirectoryPath() + File.separatorChar + directoryName);
 
@@ -91,22 +91,20 @@ public class EncryptedBackupExporter {
 
       File[] contents = directory.listFiles();
 
-      for (int i=0;i<contents.length;i++) {
-        File localFile = contents[i];
-
-        if (localFile.isFile() && !localFile.getAbsolutePath().contains("libcurve25519.so")) {
-          File exportedFile = new File(exportDirectory.getAbsolutePath() + File.separator + localFile.getName());
-          migrateFile(localFile, exportedFile);
-        } else {
-          exportDirectory(context, directoryName + File.separator + localFile.getName());
+        for (File localFile : contents) {
+            if (localFile.isFile() && !localFile.getAbsolutePath().contains("libcurve25519.so")) {
+                File exportedFile = new File(exportDirectory.getAbsolutePath() + File.separator + localFile.getName());
+                migrateFile(localFile, exportedFile);
+            } else {
+                exportDirectory(context, directoryName + File.separator + localFile.getName());
+            }
         }
-      }
     } else {
       Log.w(TAG, "Could not find directory: " + directory.getAbsolutePath() + " (or it is not a directory)");
     }
   }
 
-  private static void importDirectory(Context context, String directoryName) throws IOException {
+  private static void importDirectory(Context context, String directoryName) {
     File directory       = new File(getExportDirectoryPath() + File.separator + directoryName);
     File importDirectory = new File(context.getFilesDir().getParent() + File.separator + directoryName);
 

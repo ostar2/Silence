@@ -19,8 +19,9 @@ package org.smssecure.smssecure.crypto;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import javax.crypto.spec.SecretKeySpec;
 import java.util.Arrays;
+
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  * When a user first initializes Silence, a few secrets

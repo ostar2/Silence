@@ -113,7 +113,7 @@ public class Conversions {
     bytes[offset + 3] = (byte)value;
     bytes[offset + 2] = (byte)(value >> 8);
     bytes[offset + 1] = (byte)(value >> 16);
-    bytes[offset + 0] = (byte)(value >> 24);
+    bytes[offset] = (byte)(value >> 24);
     return 4;
   }
 

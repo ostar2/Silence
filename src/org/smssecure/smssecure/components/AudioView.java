@@ -35,6 +35,7 @@ import org.smssecure.smssecure.mms.SlideClickListener;
 import org.smssecure.smssecure.util.Util;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 
@@ -196,7 +197,7 @@ public class AudioView extends FrameLayout implements AudioSlidePlayer.Listener 
     if (seekProgress > seekBar.getProgress() || backwardsCounter > 3) {
       backwardsCounter = 0;
       this.seekBar.setProgress(seekProgress);
-      this.timestamp.setText(String.format("%02d:%02d",
+      this.timestamp.setText(String.format(Locale.US,"%02d:%02d",
                                            TimeUnit.MILLISECONDS.toMinutes(millis),
                                            TimeUnit.MILLISECONDS.toSeconds(millis)));
     } else {

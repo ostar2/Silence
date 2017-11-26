@@ -17,16 +17,15 @@
 
 package org.smssecure.smssecure.dom.smil;
 
+import android.util.Log;
+
+import org.smssecure.smssecure.dom.events.EventImpl;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.events.DocumentEvent;
 import org.w3c.dom.events.Event;
 import org.w3c.dom.smil.ElementTime;
 import org.w3c.dom.smil.SMILMediaElement;
 import org.w3c.dom.smil.TimeList;
-
-import android.util.Log;
-
-import org.smssecure.smssecure.dom.events.EventImpl;
 
 public class SmilMediaElementImpl extends SmilElementImpl implements
         SMILMediaElement {

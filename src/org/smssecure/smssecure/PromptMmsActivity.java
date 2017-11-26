@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 
-import org.smssecure.smssecure.preferences.MmsPreferencesActivity;
 import org.smssecure.smssecure.crypto.MasterSecret;
+import org.smssecure.smssecure.preferences.MmsPreferencesActivity;
 
 public class PromptMmsActivity extends PassphraseRequiredActionBarActivity {
 

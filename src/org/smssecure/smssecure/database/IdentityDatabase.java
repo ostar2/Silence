@@ -24,13 +24,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.util.Log;
 
+import org.smssecure.smssecure.crypto.MasterCipher;
+import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.recipients.RecipientFactory;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.smssecure.smssecure.util.Base64;
 import org.whispersystems.libsignal.IdentityKey;
 import org.whispersystems.libsignal.InvalidKeyException;
-import org.smssecure.smssecure.crypto.MasterCipher;
-import org.smssecure.smssecure.crypto.MasterSecret;
 
 import java.io.IOException;
 

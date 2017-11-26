@@ -188,7 +188,7 @@ public class MasterCipher {
     return ivAndBody;
   }
 
-  private Mac getMac(SecretKeySpec key) throws NoSuchAlgorithmException, InvalidKeyException {
+  private Mac getMac(SecretKeySpec key) throws InvalidKeyException {
     //		Mac hmac = Mac.getInstance("HmacSHA1");
     hmac.init(key);
 
@@ -205,7 +205,7 @@ public class MasterCipher {
     return encryptedAndMac;
   }
 
-  private Cipher getDecryptingCipher(SecretKeySpec key, byte[] encryptedBody) throws InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchPaddingException {
+  private Cipher getDecryptingCipher(SecretKeySpec key, byte[] encryptedBody) throws InvalidKeyException, InvalidAlgorithmParameterException {
     //		Cipher cipher      = Cipher.getInstance("AES/CBC/PKCS5Padding");
     IvParameterSpec iv = new IvParameterSpec(encryptedBody, 0, decryptingCipher.getBlockSize());
     decryptingCipher.init(Cipher.DECRYPT_MODE, key, iv);
@@ -213,7 +213,7 @@ public class MasterCipher {
     return decryptingCipher;
   }
 
-  private Cipher getEncryptingCipher(SecretKeySpec key) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+  private Cipher getEncryptingCipher(SecretKeySpec key) throws InvalidKeyException {
     //		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
     encryptingCipher.init(Cipher.ENCRYPT_MODE, key);
 

@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -29,8 +31,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
-
-import android.util.Log;
 
 /**
  * A class for streaming an encrypted MMS "part" to disk.
@@ -52,7 +52,7 @@ public class EncryptingPartOutputStream extends FileOutputStream {
       cipher = initializeCipher(mac, masterSecret.getEncryptionKey());
       closed = false;
     } catch (IOException ioe) {
-      Log.w("EncryptingPartOutputStream", ioe);
+      Log.w("Enc.PartOutputStream", ioe);
       throw new FileNotFoundException("Couldn't write IV");
     } catch (InvalidKeyException e) {
       throw new AssertionError(e);

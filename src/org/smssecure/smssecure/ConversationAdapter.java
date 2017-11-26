@@ -18,13 +18,10 @@ package org.smssecure.smssecure;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,35 +29,33 @@ import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.smssecure.smssecure.util.Conversions;
+import org.smssecure.smssecure.ConversationAdapter.HeaderViewHolder;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.CursorRecyclerViewAdapter;
 import org.smssecure.smssecure.database.DatabaseFactory;
 import org.smssecure.smssecure.database.MmsSmsColumns;
 import org.smssecure.smssecure.database.MmsSmsDatabase;
-import org.smssecure.smssecure.database.SmsDatabase;
 import org.smssecure.smssecure.database.model.MediaMmsMessageRecord;
 import org.smssecure.smssecure.database.model.MessageRecord;
 import org.smssecure.smssecure.recipients.Recipients;
+import org.smssecure.smssecure.util.Conversions;
 import org.smssecure.smssecure.util.DateUtils;
 import org.smssecure.smssecure.util.LRUCache;
 import org.smssecure.smssecure.util.StickyHeaderDecoration;
 import org.smssecure.smssecure.util.Util;
-import org.smssecure.smssecure.ConversationAdapter.HeaderViewHolder;
+import org.smssecure.smssecure.util.ViewUtil;
+import org.smssecure.smssecure.util.VisibleForTesting;
 
 import java.lang.ref.SoftReference;
-import java.util.Calendar;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-
-import org.smssecure.smssecure.util.ViewUtil;
-import org.smssecure.smssecure.util.VisibleForTesting;
 
 /**
  * A cursor adapter for a conversation thread.  Ultimately

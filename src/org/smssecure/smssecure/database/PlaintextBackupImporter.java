@@ -9,7 +9,6 @@ import android.util.Log;
 import org.smssecure.smssecure.crypto.MasterCipher;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.recipients.RecipientFactory;
-import org.smssecure.smssecure.recipients.RecipientFormattingException;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -65,7 +64,7 @@ public class PlaintextBackupImporter {
       ThreadDatabase threads         = DatabaseFactory.getThreadDatabase(context);
       XmlBackup      backup          = new XmlBackup(path);
       MasterCipher   masterCipher    = new MasterCipher(masterSecret);
-      Set<Long>      modifiedThreads = new HashSet<Long>();
+      Set<Long>      modifiedThreads = new HashSet<>();
       XmlBackup.XmlBackupItem item;
 
       while ((item = backup.getNext()) != null) {

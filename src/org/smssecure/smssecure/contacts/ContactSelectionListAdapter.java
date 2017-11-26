@@ -20,15 +20,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.provider.ContactsContract;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleableRes;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,10 +33,10 @@ import android.widget.TextView;
 
 import org.smssecure.smssecure.R;
 import org.smssecure.smssecure.components.RecyclerViewFastScroller.FastScrollAdapter;
-import org.smssecure.smssecure.util.StickyHeaderDecoration.StickyHeaderAdapter;
 import org.smssecure.smssecure.contacts.ContactSelectionListAdapter.HeaderViewHolder;
 import org.smssecure.smssecure.contacts.ContactSelectionListAdapter.ViewHolder;
 import org.smssecure.smssecure.database.CursorRecyclerViewAdapter;
+import org.smssecure.smssecure.util.StickyHeaderDecoration.StickyHeaderAdapter;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -396,7 +396,7 @@ public class ConversationListFragment extends Fragment
             }
 
             private void sendMediaDraft(DraftDatabase.Draft draft, long threadId, @Nullable String forcedValue) {
-              List<Attachment> attachment = new LinkedList<Attachment>();
+              List<Attachment> attachment = new LinkedList<>();
               attachment.add(new UriAttachment(Uri.parse(draft.getValue()), draft.getType() + "/*", AttachmentDatabase.TRANSFER_PROGRESS_DONE));
 
               OutgoingMediaMessage message = new OutgoingMediaMessage(recipients,
@@ -639,11 +639,9 @@ public class ConversationListFragment extends Fragment
                        p);
         }
 
-        if (Build.VERSION.SDK_INT >= 11) {
           float alpha = 1.0f - Math.abs(dX) / (float) viewHolder.itemView.getWidth();
           viewHolder.itemView.setAlpha(alpha);
           viewHolder.itemView.setTranslationX(dX);
-        }
 
       } else {
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);

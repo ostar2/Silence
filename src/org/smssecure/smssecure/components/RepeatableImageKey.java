@@ -6,11 +6,9 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class RepeatableImageKey extends ImageButton {
@@ -64,9 +62,7 @@ public class RepeatableImageKey extends ImageButton {
     @Override
     public void run() {
       notifyListener();
-      postDelayed(this, VERSION.SDK_INT >= VERSION_CODES.HONEYCOMB_MR1
-                        ? ViewConfiguration.getKeyRepeatDelay()
-                        : 50);
+      postDelayed(this, ViewConfiguration.getKeyRepeatDelay());
     }
   }
 
@@ -82,9 +78,7 @@ public class RepeatableImageKey extends ImageButton {
     public boolean onTouch(View view, MotionEvent motionEvent) {
       switch (motionEvent.getAction()) {
       case MotionEvent.ACTION_DOWN:
-        view.postDelayed(repeater, VERSION.SDK_INT >= VERSION_CODES.HONEYCOMB_MR1
-                                   ? ViewConfiguration.getKeyRepeatTimeout()
-                                   : ViewConfiguration.getLongPressTimeout());
+        view.postDelayed(repeater, ViewConfiguration.getKeyRepeatTimeout());
         performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
         return false;
       case MotionEvent.ACTION_CANCEL:

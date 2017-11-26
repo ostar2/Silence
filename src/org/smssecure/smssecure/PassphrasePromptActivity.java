@@ -36,10 +36,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.smssecure.smssecure.crypto.InvalidPassphraseException;
+import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.crypto.MasterSecretUtil;
 import org.smssecure.smssecure.util.DynamicIntroTheme;
 import org.smssecure.smssecure.util.DynamicLanguage;
-import org.smssecure.smssecure.crypto.MasterSecret;
 
 /**
  * Activity that prompts for a user's passphrase.

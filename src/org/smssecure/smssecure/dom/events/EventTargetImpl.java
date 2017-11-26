@@ -17,14 +17,14 @@
 
 package org.smssecure.smssecure.dom.events;
 
-import java.util.ArrayList;
+import android.util.Log;
 
 import org.w3c.dom.events.Event;
 import org.w3c.dom.events.EventException;
 import org.w3c.dom.events.EventListener;
 import org.w3c.dom.events.EventTarget;
 
-import android.util.Log;
+import java.util.ArrayList;
 
 public class EventTargetImpl implements EventTarget {
     private static final String TAG = "EventTargetImpl";
@@ -58,7 +58,7 @@ public class EventTargetImpl implements EventTarget {
         removeEventListener(type, listener, useCapture);
 
         if (mListenerEntries == null) {
-            mListenerEntries = new ArrayList<EventListenerEntry>();
+            mListenerEntries = new ArrayList<>();
         }
         mListenerEntries.add(new EventListenerEntry(type, listener, useCapture));
     }

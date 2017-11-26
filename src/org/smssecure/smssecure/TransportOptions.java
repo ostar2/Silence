@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 
 import org.smssecure.smssecure.util.CharacterCalculator;
 import org.smssecure.smssecure.util.DummyCharacterCalculator;
+import org.smssecure.smssecure.util.EncryptedSmsCharacterCalculator;
 import org.smssecure.smssecure.util.MmsCharacterCalculator;
 import org.smssecure.smssecure.util.SmsCharacterCalculator;
-import org.smssecure.smssecure.util.EncryptedSmsCharacterCalculator;
 import org.smssecure.smssecure.util.dualsim.SubscriptionInfoCompat;
 import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
 import org.whispersystems.libsignal.util.guava.Optional;

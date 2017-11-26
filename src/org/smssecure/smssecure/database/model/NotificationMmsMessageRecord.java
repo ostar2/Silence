@@ -20,10 +20,10 @@ import android.content.Context;
 import android.text.SpannableString;
 
 import org.smssecure.smssecure.R;
-import org.smssecure.smssecure.database.SmsDatabase.Status;
 import org.smssecure.smssecure.database.MmsDatabase;
-import org.smssecure.smssecure.database.documents.NetworkFailure;
+import org.smssecure.smssecure.database.SmsDatabase.Status;
 import org.smssecure.smssecure.database.documents.IdentityKeyMismatch;
+import org.smssecure.smssecure.database.documents.NetworkFailure;
 import org.smssecure.smssecure.recipients.Recipient;
 import org.smssecure.smssecure.recipients.Recipients;
 
