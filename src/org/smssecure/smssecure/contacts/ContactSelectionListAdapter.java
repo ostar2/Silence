@@ -23,6 +23,7 @@ import android.provider.ContactsContract;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StyleableRes;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -127,9 +128,9 @@ public class ContactSelectionListAdapter extends CursorRecyclerViewAdapter<ViewH
     String label       = cursor.getString(cursor.getColumnIndexOrThrow(ContactsDatabase.LABEL_COLUMN));
     String labelText   = ContactsContract.CommonDataKinds.Phone.getTypeLabel(getContext().getResources(),
                                                                              numberType, label).toString();
-
-    int color = (contactType == ContactsDatabase.PUSH_TYPE) ? drawables.getColor(0, 0xa0000000) :
-                drawables.getColor(1, 0xff000000);
+    @StyleableRes int push = 0,user = 1;
+    int color = (contactType == ContactsDatabase.PUSH_TYPE) ? drawables.getColor(push, 0xa0000000) :
+                drawables.getColor(user, 0xff000000);
 
     viewHolder.getView().unbind();
     viewHolder.getView().set(id, contactType, name, number, labelText, color, multiSelect);

@@ -28,10 +28,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-
+import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.loaders.ConversationListLoader;
 import org.smssecure.smssecure.recipients.Recipients;
-import org.smssecure.smssecure.crypto.MasterSecret;
 
 /**
  * A fragment to select and share to open conversations
@@ -104,6 +103,6 @@ public class ShareFragment extends ListFragment implements LoaderManager.LoaderC
   }
 
   public interface ConversationSelectedListener {
-    public void onCreateConversation(long threadId, Recipients recipients, int distributionType);
+    void onCreateConversation(long threadId, Recipients recipients, int distributionType);
   }
 }

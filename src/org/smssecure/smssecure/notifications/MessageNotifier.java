@@ -33,13 +33,11 @@ import android.os.Build;
 import android.os.Looper;
 import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationManagerCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.smssecure.smssecure.providers.BadgeWidgetProvider;
 import org.smssecure.smssecure.ConversationActivity;
 import org.smssecure.smssecure.ConversationListActivity;
 import org.smssecure.smssecure.R;
@@ -51,12 +49,13 @@ import org.smssecure.smssecure.database.ThreadDatabase;
 import org.smssecure.smssecure.database.model.MediaMmsMessageRecord;
 import org.smssecure.smssecure.database.model.MessageRecord;
 import org.smssecure.smssecure.mms.SlideDeck;
+import org.smssecure.smssecure.providers.BadgeWidgetProvider;
 import org.smssecure.smssecure.recipients.Recipient;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.smssecure.smssecure.service.KeyCachingService;
 import org.smssecure.smssecure.util.ServiceUtil;
-import org.smssecure.smssecure.util.SpanUtil;
 import org.smssecure.smssecure.util.SilencePreferences;
+import org.smssecure.smssecure.util.SpanUtil;
 
 import java.util.List;
 import java.util.ListIterator;
@@ -296,8 +295,9 @@ public class MessageNotifier {
                        notificationState.getMarkAsReadIntent(context, notificationId),
                        notificationState.getQuickReplyIntent(context, notifications.get(0).getRecipients()),
                        notificationState.getRemoteReplyIntent(context, notifications.get(0).getRecipients()));
-    builder.addAndroidAutoAction(notificationState.getAndroidAutoReplyIntent(context, notifications.get(0).getRecipients()),
-                                 notificationState.getAndroidAutoHeardIntent(context, notificationId), notifications.get(0).getTimestamp());
+    //TODO removed android auto
+    //builder.addAndroidAutoAction(notificationState.getAndroidAutoReplyIntent(context, notifications.get(0).getRecipients()),
+    //                             notificationState.getAndroidAutoHeardIntent(context, notificationId), notifications.get(0).getTimestamp());
 
     ListIterator<NotificationItem> iterator = notifications.listIterator(notifications.size());
 

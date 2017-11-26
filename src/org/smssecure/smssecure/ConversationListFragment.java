@@ -16,6 +16,7 @@
  */
 package org.smssecure.smssecure;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -54,9 +55,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import org.smssecure.smssecure.ConversationListAdapter.ItemClickListener;
 import org.smssecure.smssecure.attachments.Attachment;
 import org.smssecure.smssecure.attachments.UriAttachment;
-import org.smssecure.smssecure.ConversationListAdapter.ItemClickListener;
 import org.smssecure.smssecure.components.reminder.DefaultSmsReminder;
 import org.smssecure.smssecure.components.reminder.DeliveryReportsReminder;
 import org.smssecure.smssecure.components.reminder.Reminder;
@@ -71,22 +72,22 @@ import org.smssecure.smssecure.database.DatabaseFactory;
 import org.smssecure.smssecure.database.DraftDatabase;
 import org.smssecure.smssecure.database.ThreadDatabase;
 import org.smssecure.smssecure.database.loaders.ConversationListLoader;
-import org.smssecure.smssecure.notifications.MessageNotifier;
 import org.smssecure.smssecure.mms.OutgoingMediaMessage;
 import org.smssecure.smssecure.mms.OutgoingSecureMediaMessage;
+import org.smssecure.smssecure.notifications.MessageNotifier;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.smssecure.smssecure.sms.MessageSender;
 import org.smssecure.smssecure.sms.OutgoingEncryptedMessage;
 import org.smssecure.smssecure.sms.OutgoingTextMessage;
-import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
 import org.smssecure.smssecure.util.Util;
 import org.smssecure.smssecure.util.ViewUtil;
+import org.smssecure.smssecure.util.dualsim.SubscriptionManagerCompat;
 import org.smssecure.smssecure.util.task.SnackbarAsyncTask;
 import org.whispersystems.libsignal.util.guava.Optional;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -299,10 +300,11 @@ public class ConversationListFragment extends Fragment
     alert.show();
   }
 
+  @SuppressLint("StringFormatMatches")
   private void handleSelectAllThreads() {
     getListAdapter().selectAllThreads();
     actionMode.setSubtitle(getString(R.string.conversation_fragment_cab__batch_selection_amount,
-                                     getListAdapter().getBatchSelections().size()));
+            getListAdapter().getBatchSelections().size()));
   }
 
   private void handleCreateConversation(long threadId, Recipients recipients, int distributionType, long lastSeen) {
@@ -433,6 +435,7 @@ public class ConversationListFragment extends Fragment
     getListAdapter().changeCursor(null);
   }
 
+  @SuppressLint("StringFormatMatches")
   @Override
   public void onItemClick(ConversationListItem item) {
     if (actionMode == null) {

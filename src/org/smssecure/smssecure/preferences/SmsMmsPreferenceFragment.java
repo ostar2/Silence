@@ -1,31 +1,26 @@
 package org.smssecure.smssecure.preferences;
 
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Telephony;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.preference.PreferenceFragment;
-import android.text.TextUtils;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.PreferenceScreen;
 
 import org.smssecure.smssecure.ApplicationPreferencesActivity;
 import org.smssecure.smssecure.R;
-import org.smssecure.smssecure.components.OutgoingSmsPreference;
 import org.smssecure.smssecure.util.SilencePreferences;
 import org.smssecure.smssecure.util.Util;
 
-import java.util.LinkedList;
-import java.util.List;
-
-public class SmsMmsPreferenceFragment extends PreferenceFragment {
+public class SmsMmsPreferenceFragment extends PreferenceFragmentCompat {
   private static final String KITKAT_DEFAULT_PREF = "pref_set_default";
   private static final String MMS_PREF            = "pref_mms_preferences";
 
@@ -36,6 +31,11 @@ public class SmsMmsPreferenceFragment extends PreferenceFragment {
 
     this.findPreference(MMS_PREF)
       .setOnPreferenceClickListener(new ApnPreferencesClickListener());
+  }
+
+  @Override
+  public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
   }
 
   @Override
@@ -81,8 +81,8 @@ public class SmsMmsPreferenceFragment extends PreferenceFragment {
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-      Fragment            fragment            = new MmsPreferencesFragment();
-      FragmentManager     fragmentManager     = getActivity().getSupportFragmentManager();
+      Fragment fragment            = new MmsPreferencesFragment();
+      FragmentManager fragmentManager     = getFragmentManager();
       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
       fragmentTransaction.replace(android.R.id.content, fragment);
       fragmentTransaction.addToBackStack(null);

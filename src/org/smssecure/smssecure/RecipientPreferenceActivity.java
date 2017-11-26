@@ -9,14 +9,13 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +28,6 @@ import org.smssecure.smssecure.components.AvatarImageView;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.DatabaseFactory;
 import org.smssecure.smssecure.database.RecipientPreferenceDatabase.VibrateState;
-import org.smssecure.smssecure.preferences.AdvancedRingtonePreference;
 import org.smssecure.smssecure.preferences.ColorPreference;
 import org.smssecure.smssecure.recipients.RecipientFactory;
 import org.smssecure.smssecure.recipients.Recipients;
@@ -145,7 +143,7 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
   }
 
   public static class RecipientPreferenceFragment
-      extends    PreferenceFragment
+      extends PreferenceFragmentCompat
       implements Recipients.RecipientsModifiedListener
   {
 
@@ -177,6 +175,11 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
     }
 
     @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
+    }
+
+    @Override
     public void onResume() {
       super.onResume();
       setSummaries(recipients);
@@ -189,28 +192,29 @@ public class RecipientPreferenceActivity extends PassphraseRequiredActionBarActi
     }
 
     private void setSummaries(Recipients recipients) {
-      CheckBoxPreference         mutePreference     = (CheckBoxPreference) this.findPreference(PREFERENCE_MUTED);
-      AdvancedRingtonePreference ringtonePreference = (AdvancedRingtonePreference) this.findPreference(PREFERENCE_TONE);
-      ListPreference             vibratePreference  = (ListPreference) this.findPreference(PREFERENCE_VIBRATE);
+      //CheckBoxPreference         mutePreference     = (CheckBoxPreference) this.findPreference(PREFERENCE_MUTED);
+      //TODO removed
+      //AdvancedRingtonePreference ringtonePreference = (AdvancedRingtonePreference) this.findPreference(PREFERENCE_TONE);
+      ListPreference vibratePreference  = (ListPreference) this.findPreference(PREFERENCE_VIBRATE);
       ColorPreference            colorPreference    = (ColorPreference) this.findPreference(PREFERENCE_COLOR);
-      Preference                 blockPreference    = this.findPreference(PREFERENCE_BLOCK);
+      Preference blockPreference    = this.findPreference(PREFERENCE_BLOCK);
 
-      mutePreference.setChecked(recipients.isMuted());
+      //mutePreference.setChecked(recipients.isMuted());
 
       final Uri toneUri = recipients.getRingtone();
 
       if (toneUri == null) {
-        ringtonePreference.setSummary(R.string.preferences__default);
-        ringtonePreference.setCurrentRingtone(Settings.System.DEFAULT_NOTIFICATION_URI);
+        //ringtonePreference.setSummary(R.string.preferences__default);
+        //ringtonePreference.setCurrentRingtone(Settings.System.DEFAULT_NOTIFICATION_URI);
       } else if (toneUri.toString().isEmpty()) {
-        ringtonePreference.setSummary(R.string.preferences__silent);
-        ringtonePreference.setCurrentRingtone(null);
+        //ringtonePreference.setSummary(R.string.preferences__silent);
+        //ringtonePreference.setCurrentRingtone(null);
       } else {
         Ringtone tone = RingtoneManager.getRingtone(getActivity(), toneUri);
 
         if (tone != null) {
-          ringtonePreference.setSummary(tone.getTitle(getActivity()));
-          ringtonePreference.setCurrentRingtone(toneUri);
+          //ringtonePreference.setSummary(tone.getTitle(getActivity()));
+          //ringtonePreference.setCurrentRingtone(toneUri);
         }
       }
 

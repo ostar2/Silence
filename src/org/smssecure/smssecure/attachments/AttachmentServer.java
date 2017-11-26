@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import org.spongycastle.util.encoders.Hex;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.mms.PartAuthority;
 import org.smssecure.smssecure.util.Util;
@@ -54,8 +53,8 @@ public class AttachmentServer implements Runnable {
       this.attachment   = attachment;
       this.socket       = new ServerSocket(0, 0, InetAddress.getByAddress(new byte[]{127, 0, 0, 1}));
       this.port         = socket.getLocalPort();
-      this.auth         = new String(Hex.encode(Util.getSecretBytes(16)));
-
+      this.auth         = HexUtils.encode(Util.getSecretBytes(16));
+//TODO test if same as spongycastle lib
       this.socket.setSoTimeout(5000);
     } catch (UnknownHostException e) {
       throw new AssertionError(e);

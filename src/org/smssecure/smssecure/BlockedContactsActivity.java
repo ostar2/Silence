@@ -89,16 +89,16 @@ public class BlockedContactsActivity extends PassphraseRequiredActionBarActivity
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-      if (getListAdapter() != null) {
+     /* if (getListAdapter() != null) {
         ((CursorAdapter) getListAdapter()).changeCursor(data);
-      }
+      }*/
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-      if (getListAdapter() != null) {
+     /* if (getListAdapter() != null) {
         ((CursorAdapter) getListAdapter()).changeCursor(null);
-      }
+      }*/
     }
 
     @Override

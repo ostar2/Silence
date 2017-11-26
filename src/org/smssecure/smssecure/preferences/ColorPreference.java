@@ -27,11 +27,10 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.Preference;
 import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,13 +87,14 @@ public class ColorPreference extends Preference {
 
     setWidgetLayoutResource(mItemLayoutId);
   }
-
+/*
   @Override
   protected void onBindView(View view) {
     super.onBindView(view);
     mPreviewView = view.findViewById(R.id.color_view);
     setColorViewValue(mPreviewView, mValue, false);
-  }
+  }*/
+//TODO removed
 
   public void setValue(int value) {
     if (callChangeListener(value)) {
@@ -119,7 +119,7 @@ public class ColorPreference extends Preference {
                                       .add(fragment, getFragmentTag())
                                       .commit();
   }
-
+/*
   @Override
   protected void onAttachedToActivity() {
     super.onAttachedToActivity();
@@ -131,7 +131,8 @@ public class ColorPreference extends Preference {
       // re-bind preference to fragment
       fragment.setPreference(this);
     }
-  }
+  }*/
+//TODO removed
 
   @Override
   protected Object onGetDefaultValue(TypedArray a, int index) {

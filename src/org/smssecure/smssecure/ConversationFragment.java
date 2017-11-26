@@ -28,12 +28,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ItemAnimator.ItemAnimatorFinishedListener;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.text.ClipboardManager;
 import android.text.TextUtils;
@@ -63,11 +62,11 @@ import org.smssecure.smssecure.mms.Slide;
 import org.smssecure.smssecure.recipients.RecipientFactory;
 import org.smssecure.smssecure.recipients.Recipients;
 import org.smssecure.smssecure.sms.MessageSender;
-import org.smssecure.smssecure.util.task.ProgressDialogAsyncTask;
 import org.smssecure.smssecure.util.SaveAttachmentTask;
 import org.smssecure.smssecure.util.SaveAttachmentTask.Attachment;
 import org.smssecure.smssecure.util.StickyHeaderDecoration;
 import org.smssecure.smssecure.util.ViewUtil;
+import org.smssecure.smssecure.util.task.ProgressDialogAsyncTask;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -177,7 +176,7 @@ public class ConversationFragment extends Fragment
   }
 
   public void reloadList() {
-    getLoaderManager().restartLoader(0, Bundle.EMPTY, this);
+      getLoaderManager().restartLoader(0, Bundle.EMPTY, this);
   }
 
   private void initializeResources() {
@@ -198,7 +197,7 @@ public class ConversationFragment extends Fragment
 
       setLastSeen(lastSeen);
       getLoaderManager().restartLoader(0, Bundle.EMPTY, this);
-      list.getItemAnimator().setMoveDuration(120);
+        list.getItemAnimator().setMoveDuration(120);
     }
   }
 

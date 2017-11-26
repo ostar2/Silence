@@ -1,16 +1,13 @@
 package org.smssecure.smssecure.preferences;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.preference.RingtonePreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
 import android.text.TextUtils;
 
 import org.smssecure.smssecure.ApplicationPreferencesActivity;
@@ -44,7 +41,12 @@ public class NotificationsPreferenceFragment extends ListSummaryPreferenceFragme
     initializeListSummary((ListPreference) findPreference(SilencePreferences.LED_BLINK_PREF));
     initializeListSummary((ListPreference) findPreference(SilencePreferences.REPEAT_ALERTS_PREF));
     initializeListSummary((ListPreference) findPreference(SilencePreferences.NOTIFICATION_PRIVACY_PREF));
-    initializeRingtoneSummary((RingtonePreference) findPreference(SilencePreferences.RINGTONE_PREF));
+    //initializeRingtoneSummary((RingtonePreference) findPreference(SilencePreferences.RINGTONE_PREF));
+  }
+
+  @Override
+  public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
   }
 
   @Override
@@ -70,7 +72,7 @@ public class NotificationsPreferenceFragment extends ListSummaryPreferenceFragme
       return true;
     }
   }
-
+/*
   private void initializeRingtoneSummary(RingtonePreference pref) {
     RingtoneSummaryListener listener =
       (RingtoneSummaryListener) pref.getOnPreferenceChangeListener();
@@ -78,7 +80,7 @@ public class NotificationsPreferenceFragment extends ListSummaryPreferenceFragme
 
     listener.onPreferenceChange(pref, sharedPreferences.getString(pref.getKey(), ""));
   }
-
+*/
   public static CharSequence getSummary(Context context) {
     final int onCapsResId   = R.string.ApplicationPreferencesActivity_On;
     final int offCapsResId  = R.string.ApplicationPreferencesActivity_Off;

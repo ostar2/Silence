@@ -19,7 +19,7 @@ package org.smssecure.smssecure.preferences;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.preference.PreferenceFragment;
+import android.support.v7.preference.PreferenceFragmentCompat;
 import android.util.Log;
 
 import org.smssecure.smssecure.PassphraseRequiredActionBarActivity;
@@ -27,13 +27,13 @@ import org.smssecure.smssecure.R;
 import org.smssecure.smssecure.components.CustomDefaultPreference;
 import org.smssecure.smssecure.database.ApnDatabase;
 import org.smssecure.smssecure.mms.LegacyMmsConnection;
-import org.smssecure.smssecure.util.TelephonyUtil;
 import org.smssecure.smssecure.util.SilencePreferences;
+import org.smssecure.smssecure.util.TelephonyUtil;
 
 import java.io.IOException;
 
 
-public class MmsPreferencesFragment extends PreferenceFragment {
+public class MmsPreferencesFragment extends PreferenceFragmentCompat {
 
   private static final String TAG = MmsPreferencesFragment.class.getSimpleName();
 
@@ -47,6 +47,12 @@ public class MmsPreferencesFragment extends PreferenceFragment {
 
     SilencePreferences.setManualMmsSettingsAsSeen(getActivity());
   }
+
+  @Override
+  public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
+  }
+
 
   @Override
   public void onResume() {

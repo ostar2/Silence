@@ -52,8 +52,8 @@ public class MmsRadio {
 
     if (connectedCounter == 0) {
       Log.w("MmsRadio", "Turning off MMS radio...");
-      connectivityManager.stopUsingNetworkFeature(ConnectivityManager.TYPE_MOBILE, FEATURE_ENABLE_MMS);
-
+      //connectivityManager.stopUsingNetworkFeature(ConnectivityManager.TYPE_MOBILE, FEATURE_ENABLE_MMS);
+//TODO deprecated !
       if (connectivityListener != null) {
         Log.w("MmsRadio", "Unregistering receiver...");
         context.unregisterReceiver(connectivityListener);
@@ -63,8 +63,11 @@ public class MmsRadio {
   }
 
   public synchronized void connect() throws MmsRadioException {
-    int status = connectivityManager.startUsingNetworkFeature(ConnectivityManager.TYPE_MOBILE,
-                                                              FEATURE_ENABLE_MMS);
+    //int status = connectivityManager.startUsingNetworkFeature(ConnectivityManager.TYPE_MOBILE,
+     //                                                         FEATURE_ENABLE_MMS);
+//TODO deprecated !
+    int status = APN_ALREADY_ACTIVE;
+    //monkey patch /\
 
     Log.w("MmsRadio", "startUsingNetworkFeature status: " + status);
 

@@ -45,8 +45,8 @@ public class AvatarImageView extends ImageView {
 
     if (attrs != null) {
       TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.AvatarImageView, 0, 0);
-      inverted = typedArray.getBoolean(0, false);
-      showBadge = typedArray.getBoolean(1, false);
+      inverted = typedArray.getBoolean(R.styleable.AvatarImageView_inverted, false);
+      showBadge = typedArray.getBoolean(R.styleable.AvatarImageView_showBadge, false);
       typedArray.recycle();
     }
   }

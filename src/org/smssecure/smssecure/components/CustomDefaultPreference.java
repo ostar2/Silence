@@ -1,16 +1,12 @@
 package org.smssecure.smssecure.components;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Bundle;
-import android.preference.DialogPreference;
-import android.support.annotation.NonNull;
+import android.support.v7.preference.DialogPreference;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -79,7 +75,8 @@ public class CustomDefaultPreference extends DialogPreference {
                                     getPrettyPrintValue(getDefaultValue()));
     }
   }
-
+  //TODO removed
+  /*
   @Override
   protected void onBindDialogView(@NonNull View view) {
     super.onBindDialogView(view);
@@ -113,7 +110,7 @@ public class CustomDefaultPreference extends DialogPreference {
       setSummary(getSummary());
     }
   }
-
+*/
   private String getPrettyPrintValue(String value) {
     if (TextUtils.isEmpty(value)) return getContext().getString(R.string.CustomDefaultPreference_none);
     else                          return value;

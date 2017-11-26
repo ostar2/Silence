@@ -16,6 +16,7 @@
  */
 package org.smssecure.smssecure.mms;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
@@ -144,7 +145,9 @@ public abstract class LegacyMmsConnection {
     }
 
     final int     ipAddress           = Conversions.byteArrayToIntLittleEndian(ipAddressBytes, 0);
-    final boolean routeToHostObtained = manager.requestRouteToHost(MmsRadio.TYPE_MOBILE_MMS, ipAddress);
+    //final boolean routeToHostObtained = manager.requestRouteToHost(MmsRadio.TYPE_MOBILE_MMS, ipAddress);
+    final boolean routeToHostObtained = true;
+    //TODO deprecated !
     Log.w(TAG, "requestRouteToHost(" + ipAddress + ") -> " + routeToHostObtained);
     return routeToHostObtained;
   }
@@ -212,6 +215,8 @@ public abstract class LegacyMmsConnection {
   }
 
   protected List<Header> getBaseHeaders() {
+    //TODO permission !
+    @SuppressLint("MissingPermission")
     final String                number    = TelephonyUtil.getManager(context).getLine1Number(); ;
 
     return new LinkedList<Header>() {{

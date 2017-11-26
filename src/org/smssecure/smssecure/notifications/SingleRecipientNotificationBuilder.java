@@ -3,7 +3,6 @@ package org.smssecure.smssecure.notifications;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -98,10 +97,12 @@ public class SingleRecipientNotificationBuilder extends AbstractNotificationBuil
       setContentText(stringBuilder.append(context.getString(R.string.SingleRecipientNotificationBuilder_new_message)));
     }
   }
-
+  //TODO removed android auto
+/*
   public void addAndroidAutoAction(@NonNull PendingIntent androidAutoReplyIntent,
                                    @NonNull PendingIntent androidAutoHeardIntent, long timestamp)
   {
+
 
     if (mContentTitle == null || mContentText == null)
       return;
@@ -119,7 +120,7 @@ public class SingleRecipientNotificationBuilder extends AbstractNotificationBuil
 
     extend(new NotificationCompat.CarExtender().setUnreadConversation(unreadConversationBuilder.build()));
   }
-
+*/
   public void addActions(@Nullable MasterSecret masterSecret,
                          @NonNull PendingIntent markReadIntent,
                          @NonNull PendingIntent quickReplyIntent,

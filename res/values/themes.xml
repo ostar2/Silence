@@ -78,6 +78,7 @@
     </style>
 
     <style name="Silence.LightTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="theme_type">light</item>
         <item name="actionBarStyle">@style/Silence.LightActionBar</item>
         <item name="actionBarTabBarStyle">@style/Silence.LightActionBar.TabBar</item>
@@ -177,6 +178,7 @@
     </style>
 
     <style name="Silence.DarkTheme" parent="@style/Theme.AppCompat">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="theme_type">dark</item>
         <item name="actionBarStyle">@style/Silence.DarkActionBar</item>
         <item name="actionBarTabBarStyle">@style/Silence.DarkActionBar.TabBar</item>
