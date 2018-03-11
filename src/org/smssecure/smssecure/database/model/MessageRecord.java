@@ -44,7 +44,7 @@ import java.util.List;
  */
 public abstract class MessageRecord extends DisplayRecord {
 
-  private static final int MAX_DISPLAY_LENGTH = 2000;
+  private static final int MAX_DISPLAY_LENGTH = 20000;
 
   private final Recipient                 individualRecipient;
   private final int                       recipientDeviceId;
